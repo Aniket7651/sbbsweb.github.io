@@ -39,7 +39,7 @@ function nextSlide() {
 showSlide(currentSlide);
 setInterval(nextSlide, 5000); // Change slide every 5 seconds
 
-const countdownDate = new Date("November 01, 2025 00:00:00").getTime();
+const countdownDate = new Date("November 1, 2025 00:00:00").getTime();
 const countdownFunction = setInterval(() => {
     const now = new Date().getTime();
     const distance = countdownDate - now;
