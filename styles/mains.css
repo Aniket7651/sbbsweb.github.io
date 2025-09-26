@@ -161,14 +161,20 @@ nav ul li a:hover {
     text-align: center;
 }
 
-.countdown-timer {
+a {
+    color: #00796b;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+}
 
+.countdown-timer {
     color: #004d40;
     background-color: #b2ebf2;
-    padding: 2%.5rem 1rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: inline-block;
+
 }
 
 .countdown-timer span {
