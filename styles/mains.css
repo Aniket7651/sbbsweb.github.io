@@ -11,6 +11,23 @@ body {
     overflow-x: hidden;
 }
 
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  gap: 15px;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
 header {
     background: #00796b;
     color: white;
@@ -26,7 +43,7 @@ header {
 }
 
 .logo {
-    font-size: .8rem;
+    font-size: .6rem;
     display: flex;
     align-items: center;
     gap: 1rem;
