@@ -168,6 +168,22 @@ a {
     transition: all 0.3s;
 }
 
+.member-btn {
+    padding: 15px;
+    border-radius: 20px;
+    border: 2px solid #004d40;
+}
+
+.member-btn:hover {
+    background-color: #b2ebf2;
+    box-shadow: 0 6px 10px #00796b;
+}
+
+.gallery-btn {
+    border-radius: 25px;
+    border: 10px solid #c2edf2;
+}
+
 .countdown-timer {
     color: #004d40;
     background-color: #b2ebf2;
@@ -217,6 +233,11 @@ a {
 
 .card:hover {
     transform: translateY(-10px);
+}
+
+.gallery-content {
+    padding-top: 20px;
+    margin-top: 20px;
 }
 
 .schedule-table {
