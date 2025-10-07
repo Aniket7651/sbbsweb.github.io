@@ -122,6 +122,16 @@ nav ul li a:hover {
     z-index: 2;
 }
 
+@media (max-width: 768px) {
+    .cta-button {
+        font-size: 12px;
+    }
+
+    .member-btn {
+        font-size: 12px;
+    }
+}
+
 .cta-button:hover {
     background: #004d40;
     transform: scale(1.1);
