@@ -325,6 +325,13 @@ footer {
     }
 }
 
+.member-btn-div {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
 
@@ -382,5 +389,93 @@ footer {
 
     .countdown-timer {
         padding: 1rem 0.5rem;
+    }
+}
+
+
+
+/* Additional breakpoints for larger tablets / small laptops */
+@media (max-width: 1080px) {
+    /* Slightly reduce header padding and logo so header feels lighter */
+    header {
+        padding: 0.9rem 1.5rem;
+    }
+
+    .logo img {
+        height: 56px;
+    }
+
+    /* Hero adjustments */
+    .hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero p {
+        max-width: 520px;
+        font-size: 1.05rem;
+    }
+
+    /* Content spacing */
+    .content-section {
+        padding: 3rem 1.5rem;
+        max-width: 1000px;
+    }
+
+    /* Gallery: 2 columns at this breakpoint
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    } */
+
+    .card {
+        width: 260px;
+    }
+}
+
+@media (max-width: 1024px) {
+    /* Further compress header and increase nav spacing for touch */
+    header {
+        padding: 0.8rem 1rem;
+    }
+
+    .logo img {
+        height: 52px;
+    }
+
+    nav ul {
+        gap: 1.2rem;
+    }
+
+    /* Hero sizing */
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        max-width: 460px;
+        font-size: 1rem;
+    }
+
+    /* Content sections narrower and padding reduced */
+    .content-section {
+        padding: 2.25rem 1rem;
+        max-width: 920px;
+    }
+
+    /* Gallery single column for readability on narrow laptop screens */
+    /* .gallery {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    } */
+
+    .card {
+        width: 100%;
+        max-width: 540px;
+        margin: 0 auto;
+    }
+
+    /* Slightly reduce awards gap so elements fit better */
+    .awards-content {
+        gap: 4rem;
     }
 }
