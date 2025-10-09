@@ -179,4 +179,12 @@
         max-width: 100%;
         padding: 16px 8px;
     }
+
+    .expand-left {
+        margin-right: 0;
+    }
+
+    .expand-right {
+        margin-left: 0;
+    }
 }
