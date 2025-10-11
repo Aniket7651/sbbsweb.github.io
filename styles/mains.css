@@ -12,20 +12,20 @@ body {
 }
 
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  width: 100%;
-  gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    gap: 15px;
 }
 
 .gallery img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 8px;
-  object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 header {
@@ -241,6 +241,50 @@ a {
     transition: transform 0.3s;
 }
 
+.adopted-centered {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.event-upcoming {
+    margin-top: 2%;
+    margin-bottom: 0;
+    width: 60%;
+}
+
+.announcement-section {
+    background-color: #b2ebf2;
+    color: #004d40;
+    padding: 10px 0;
+    max-width: 80%;
+    text-align: center;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    margin-top: 80px; /* Adjust based on header height */
+}
+
+.blinker {
+    display: inline-block;
+    border-radius: 50px;
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: #004d40;
+    font-size: 1.5rem;
+    animation: blinker 1.5s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
 .card:hover {
     transform: translateY(-10px);
 }
@@ -396,6 +440,7 @@ footer {
 
 /* Additional breakpoints for larger tablets / small laptops */
 @media (max-width: 1080px) {
+
     /* Slightly reduce header padding and logo so header feels lighter */
     header {
         padding: 0.9rem 1.5rem;
@@ -430,9 +475,25 @@ footer {
     .card {
         width: 260px;
     }
+
+
+    .adopted-centered {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .event-upcoming {
+        margin-top: 2%;
+        margin-bottom: 0;
+        width: 60%;
+    }
 }
 
 @media (max-width: 1024px) {
+
     /* Further compress header and increase nav spacing for touch */
     header {
         padding: 0.8rem 1rem;
@@ -477,5 +538,19 @@ footer {
     /* Slightly reduce awards gap so elements fit better */
     .awards-content {
         gap: 4rem;
+    }
+
+
+    .adopted-centered {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .event-upcoming {
+        margin-top: 2%;
+        margin-bottom: 0;
     }
 }
