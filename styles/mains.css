@@ -401,6 +401,19 @@ footer {
         font-size: 2rem;
     }
 
+    .blinker {
+        width: 20px;
+        height: 20px;
+    }
+
+    .announcement-bar h2 {
+        font-size: 1.2rem;
+    }
+
+    .adopted-centered h1 {
+        font-size: 1.4rem;
+    }
+
     .awards-content {
         display: flex;
         flex-direction: column;
