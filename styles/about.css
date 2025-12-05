@@ -90,18 +90,7 @@
     text-align: center;
 }
 
-.leaders-tree li::before {
-    content: '';
-    position: absolute;
-    top: -32px;
-    left: 50%;
-    width: 2px;
-    height: 32px;
-    background: #b2bec3;
-    transform: translateX(-50%);
-    z-index: 0;
-    display: none;
-}
+
 
 .leaders-tree ul ul > li::before {
     display: block;
