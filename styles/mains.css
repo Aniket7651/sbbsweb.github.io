@@ -165,7 +165,7 @@ nav ul li a:hover {
 }
 
 .content-section {
-    padding: 4rem 2rem;
+    padding: 2rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
@@ -222,7 +222,7 @@ a {
 .content-section p {
     font-size: 1.1rem;
     max-width: 800px;
-    margin: 0 auto 2rem;
+    margin: 0 auto 1.5rem;
 }
 
 .card-container {
@@ -274,6 +274,12 @@ a {
     align-items: center;
     gap: 20px;
     width: 90%;
+}
+
+@media (max-width: 768px) {
+    .incoming-conf-box {
+        flex-direction: column;
+    }
 }
 
 .blinker {
