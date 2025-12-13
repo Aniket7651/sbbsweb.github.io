@@ -267,6 +267,15 @@ a {
     margin-top: 80px; /* Adjust based on header height */
 }
 
+.incoming-conf-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 90%;
+}
+
 .blinker {
     display: inline-block;
     border-radius: 50px;
