@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBBS NCAB-HAFVS 2025</title>
+    <link rel="stylesheet" href="styles/mains.css?v=0.01">
+    <link rel="icon" type="image/png" href="imgs/sbbslogoold.jpeg">
+    <link rel="stylesheet" href="styles/cert.css?v=0.01">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="imgs/sbbslogoold.jpeg" alt="SBBS Logo">
+            <h1>Society for Bioinformatics and Biological Sciences (SBBS)</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="down.html">Downloads</a></li>
+                <li><a href="joinus.html">Membership</a></li>
+                <li><a href="aboutpage.html">About SBBS</a></li>
+                <li><a href="index.html#register">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="download-section">
+
+        <h1 style="text-align: center;">National Conference on Advances in Bioinformatics: Health, Agriculture, Food,
+            Veterinary & Humanities
+            (NCAB-HAFVH-2025)</h1>
+        <p style="text-align: center;">Date: 27th-28th December 2025</p>
+
+
+        <div class="certificate-container">
+            <h1>Thank you for attending our conference</h1>
+            <p>Enter your email and download the PDF certificate</p>
+
+            <input type="email" id="emailInput" placeholder="What's your registered email?" />
+            <br>
+            <button onclick="generateParticipantCertificate()">Download Participation Certificate</button>
+
+            <br>
+            <br>
+
+            <h1>If you are participated in presentations</h1>
+            <br>
+            <button onclick="generatePresentationCertificate()" class="btn-box-cert">Download Presentation
+                Certificate</button>
+
+            <div class="note">
+                <p><strong>Note:</strong> If you encounter any issues with downloading, please don't hesitate to reach out to our team.</p>
+                <p>On<br><strong>ncabhafvs2025@gmail.com</strong></p>
+            </div>
+        </div>
+
+        <!-- <div class="certificate-container">
+            
+        </div> -->
+
+        <div class="certificate-container">
+            <h3>Download Conference Proceeding: <a href="#">Download</a></h3>
+            <br>
+            <br>
+            <h3>Confirm that your certificate is authentically original</h3>
+            <input type="text" id="codeInput" placeholder="Enter participant code (e.g. NCAB-HAFVH-2025-8ISy-364659)" autocomplete="off">
+            <br>
+            <div id="loading" style="font-size:18px; color:#666;"></div>
+            <div id="info"></div>
+        </div>
+    </section>
+    <footer>
+        <div>
+            <h2>For any query</h2>
+            <strong>
+                <p>Dr. Satendra Singh: 09565448367, Er. Sharad K. Jaiswal: 08171252968, Email: ncabhafvs2025@gmail.com
+                </p>
+            </strong>
+        </div>
+        <br>
+
+        <p>&copy; 2025 Society for Bioinformatics and Biological Sciences. All rights reserved.</p>
+        <p>Website by Aniket Yadav, Sharad K. Jaiswal</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script src="js/cert.js?v=0.01"></script>
+</body>
+
+</html>

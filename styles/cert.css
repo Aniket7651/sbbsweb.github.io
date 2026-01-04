@@ -1,0 +1,128 @@
+.download-section {
+    padding: 10% 20px;
+}
+
+@media (max-width:768px) {
+    .download-section {
+        padding: 30% 20px;
+    }
+}
+
+.wrapper {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    container-type: inline-size;
+}
+
+.card {
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 20px 20px;
+    width: 100%;
+}
+
+.card div {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+@container (max-width: 768px) {
+
+    .card,
+    .card div {
+        flex-direction: column;
+    }
+}
+
+.box-btn {
+    background-color: #00796b;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.download-section h1 {
+    color: #005b50;
+}
+
+.certificate-container {
+    text-align: center;
+    background: white;
+    max-width: 100%;
+    margin: 2% 20% 0 20%;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    padding: 12px;
+    font-size: 18px;
+    width: 70%;
+    margin: 20px 0;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+}
+
+button {
+    padding: 12px 30px;
+    font-size: 18px;
+    background: #00796b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+button:hover {
+    background: #005b50;
+}
+
+.btn-box-cert {
+    background-color: transparent;
+    border: 2px solid #005b50;
+    color: #005b50;
+    transition: all 0.5s;
+}
+
+.btn-box-cert:hover{
+    background-color: #005b50;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .certificate-container {
+        margin: 2%;
+        padding: 10px;
+    }
+
+    input {
+        width: 100%;
+    }
+    button {
+        font-size: 1.2rem;
+        padding: 5%;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+}
+
+
+.note {
+    margin-top: 30px;
+    color: #666;
+    font-size: 14px;
+}
