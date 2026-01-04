@@ -1,5 +1,6 @@
 
-const domain = window.location.hostname+':5500'; // ------ port -------
+const domain = window.location.hostname; // ------ port -------
+const protocol = 'https'
 
 async function generateParticipantCertificate() {
     const { jsPDF } = window.jspdf;
@@ -21,7 +22,7 @@ async function generateParticipantCertificate() {
     // Load and parse the CSV file production will be from server 
     // here for testing we are using localhost path
 
-    Papa.parse(`http://${domain}/docs/cert/participants.csv`, {
+    Papa.parse(`${protocol}://${domain}/docs/cert/participants.csv`, {
         download: true,
         header: true,
         dynamicTyping: true,
@@ -132,7 +133,7 @@ async function generatePresentationCertificate() {
         return;
     }
 
-    Papa.parse(`http://${domain}/docs/cert/participants.csv`, {
+    Papa.parse(`${protocol}://${domain}/docs/cert/participants.csv`, {
         download: true,
         header: true,
         dynamicTyping: true,
@@ -259,7 +260,7 @@ async function generatePresentationCertificate() {
 
 function initParticipantValidator() {
     // CHANGE THIS TO YOUR ACTUAL RAW CSV URL
-    const CSV_URL = `http://${domain}/docs/cert/participants.csv`;
+    const CSV_URL = `${protocol}://${domain}/docs/cert/participants.csv`;
 
     let participants = [];
 
