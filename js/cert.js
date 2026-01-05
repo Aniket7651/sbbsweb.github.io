@@ -237,30 +237,9 @@ async function generatePresentationCertificate() {
 }
 
 
-// function winningValidator() {
+function initConferenceValidator() {
 
-//     fetch(`http://${domain}/docs/cert/winners.csv`)
-//     .then(response => {
-//         if(!response.ok) throw new Error('CSV not found');
-//         return response.text();
-//     })
-//     .then(csvText => {
-//         Papa.parse(csvText, {
-//             header: true,
-//             skipEmptyLines:true,
-//             complete: function(results) {
-
-//             }
-//         })
-//     }).catch(err => {
-//         showError('ERROR LOADING DAATA: ' + err.message);
-//     });
-// }
-
-
-function initParticipantValidator() {
-    // CHANGE THIS TO YOUR ACTUAL RAW CSV URL
-    const CSV_URL = `${protocol}://${domain}/docs/cert/participants.csv`;
+    const CSV_URL = `${protocol}://${domain}/docs/cert/Validation_list.csv`;
 
     let participants = [];
 
@@ -333,15 +312,40 @@ function initParticipantValidator() {
         const infoEl = document.getElementById('info');
         if (!infoEl) return;
 
-        if (participant) {
+        if (participant.Mode === 'Invited Speaker') {
+            infoEl.innerHTML = `
+                <div style="color:#28a745; font-size:28px; font-weight:bold;">Valid Speaker</div>
+                <div style="margin-top:20px; text-align:left; font-size:18px;">
+                    <p><strong>Name:</strong> ${participant.Name || 'N/A'}</p>
+                    <p><strong>Email:</strong> ${participant.Email || 'N/A'}</p>
+                    <p><strong>Affiliation:</strong> ${participant.Affiliation || 'N/A'}</p>
+                    <p><strong>Mode of Participant:</strong> ${participant.Mode || 'N/A'}; <strong>${participant.Committee || ''}</strong></p>
+                    <p><strong>Talk:</strong> ${participant.Topic || 'N/A'}</p>
+                    <p><strong>Session & Timing of Talk:</strong> ${participant.Session || 'N/A'}, ${participant.Timimg || 'N/A'}</p>
+                </div>
+            `;
+        } else if (participant.Position !== '') {
+            infoEl.innerHTML = `
+                <div style="color:#28a745; font-size:28px; font-weight:bold;">Valid Participant & ${participant.Position} Position Winner in ${participant.Mode}</div>
+                <div style="margin-top:20px; text-align:left; font-size:18px;">
+                    <p><strong>Name:</strong> ${participant.Name || 'N/A'}</p>
+                    <p><strong>Email:</strong> ${participant.Email || 'N/A'}</p>
+                    <p><strong>Affiliation:</strong> ${participant.Affiliation || 'N/A'}</p>
+                    <p><strong>Mode of Participant:</strong> ${participant.Mode || 'N/A'}</p>
+                    <p><strong>Topic:</strong> ${participant.Topic || 'N/A'}</p>
+                </div>
+            `;
+
+        } else if (participant.Mode === 'Only Participants') {
+            participant.Mode = 'Only Participant';
             infoEl.innerHTML = `
                 <div style="color:#28a745; font-size:28px; font-weight:bold;">Valid Participant</div>
                 <div style="margin-top:20px; text-align:left; font-size:18px;">
                     <p><strong>Name:</strong> ${participant.Name || 'N/A'}</p>
                     <p><strong>Email:</strong> ${participant.Email || 'N/A'}</p>
                     <p><strong>Affiliation:</strong> ${participant.Affiliation || 'N/A'}</p>
-                    <p><strong>Mode of Participant:</strong> ${participant.Mode || 'N/A'}</p>
-                    <!-- Add more fields from your CSV here -->
+                    <p><strong>Mode of Participant:</strong> ${participant.Mode || 'N/A'}; </p>
+                    <p><strong>Topic:</strong> ${participant.Topic || 'Only attendee; he has no topic to present as oral or poster.'} </p>
                 </div>
             `;
         } else {
@@ -358,5 +362,107 @@ function initParticipantValidator() {
     }
 }
 
+
+// function initParticipantValidator() {
+//     // CHANGE THIS TO YOUR ACTUAL RAW CSV URL
+//     const CSV_URL = `${protocol}://${domain}/docs/cert/participants.csv`;
+
+//     let participants = [];
+
+//     // Load CSV once on page load
+//     fetch(CSV_URL)
+//         .then(response => {
+//             if (!response.ok) throw new Error('CSV not found');
+//             return response.text();
+//         })
+//         .then(csvText => {
+//             Papa.parse(csvText, {
+//                 header: true,
+//                 skipEmptyLines: true,
+//                 complete: function(results) {
+//                     participants = results.data;
+//                     hideLoading();
+//                     focusInput();
+//                 }
+//             });
+//         })
+//         .catch(err => {
+//             showError('Error loading data: ' + err.message);
+//         });
+
+//     function hideLoading() {
+//         const loadingEl = document.getElementById('loading');
+//         if (loadingEl) loadingEl.style.display = 'none';
+//     }
+
+//     function focusInput() {
+//         const input = document.getElementById('codeInput');
+//         if (input) input.focus();
+//     }
+
+//     function showError(message) {
+//         const loadingEl = document.getElementById('loading');
+//         if (loadingEl) {
+//             loadingEl.innerHTML = '<span style="color:red;">' + message + '</span>';
+//         }
+//     }
+
+//     // Setup input listener
+//     const input = document.getElementById('codeInput');
+//     if (!input) {
+//         console.error('Element with id="codeInput" not found');
+//         return;
+//     }
+
+//     input.addEventListener('input', function() {
+//         const code = this.value.trim();
+//         if (code === '') {
+//             clearInfo();
+//             return;
+//         }
+//         searchParticipant(code);
+//     });
+
+//     input.addEventListener('keypress', function(e) {
+//         if (e.key === 'Enter') {
+//             const code = this.value.trim();
+//             searchParticipant(code);
+//         }
+//     });
+
+//     function searchParticipant(code) {
+//         const participant = participants.find(p => 
+//             p['uuid'] && p['uuid'].trim() === code
+//         );
+
+//         const infoEl = document.getElementById('info');
+//         if (!infoEl) return;
+
+//         if (participant) {
+//             infoEl.innerHTML = `
+//                 <div style="color:#28a745; font-size:28px; font-weight:bold;">Valid Participant</div>
+//                 <div style="margin-top:20px; text-align:left; font-size:18px;">
+//                     <p><strong>Name:</strong> ${participant.Name || 'N/A'}</p>
+//                     <p><strong>Email:</strong> ${participant.Email || 'N/A'}</p>
+//                     <p><strong>Affiliation:</strong> ${participant.Affiliation || 'N/A'}</p>
+//                     <p><strong>Mode of Participant:</strong> ${participant.Mode || 'N/A'}</p>
+//                     <!-- Add more fields from your CSV here -->
+//                 </div>
+//             `;
+//         } else {
+//             infoEl.innerHTML = `
+//                 <div style="color:#dc3545; font-size:28px; font-weight:bold;">Invalid</div>
+//                 <div style="margin-top:20px;">Invalid or unknown code: ${code}</div>
+//             `;
+//         }
+//     }
+
+//     function clearInfo() {
+//         const infoEl = document.getElementById('info');
+//         if (infoEl) infoEl.innerHTML = '';
+//     }
+// }
+
 // Call this function when you want to start the validator (e.g., on page load)
-initParticipantValidator();
+// initParticipantValidator();
+initConferenceValidator();
