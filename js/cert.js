@@ -314,7 +314,7 @@ function initConferenceValidator() {
 
         if (participant.Mode === 'Invited Speaker') {
             infoEl.innerHTML = `
-                <div style="color:#28a745; font-size:28px; font-weight:bold;">Valid Speaker</div>
+                <div style="color:#28a745; font-size:28px; font-weight:bold;">Recognised Speaker</div>
                 <div style="margin-top:20px; text-align:left; font-size:18px;">
                     <p><strong>Name:</strong> ${participant.Name || 'N/A'}</p>
                     <p><strong>Email:</strong> ${participant.Email || 'N/A'}</p>
@@ -326,7 +326,7 @@ function initConferenceValidator() {
             `;
         } else if (participant.Position !== '') {
             infoEl.innerHTML = `
-                <div style="color:#28a745; font-size:28px; font-weight:bold;">Valid Participant & ${participant.Position} Position Winner in ${participant.Mode}</div>
+                <div style="color:#28a745; font-size:28px; font-weight:bold;">Recognised Participant & ${participant.Position} Position Winner in ${participant.Mode}</div>
                 <div style="margin-top:20px; text-align:left; font-size:18px;">
                     <p><strong>Name:</strong> ${participant.Name || 'N/A'}</p>
                     <p><strong>Email:</strong> ${participant.Email || 'N/A'}</p>
@@ -339,7 +339,7 @@ function initConferenceValidator() {
         } else if (participant.Mode === 'Only Participants') {
             participant.Mode = 'Only Participant';
             infoEl.innerHTML = `
-                <div style="color:#28a745; font-size:28px; font-weight:bold;">Valid Participant</div>
+                <div style="color:#28a745; font-size:28px; font-weight:bold;">Recognised Participant</div>
                 <div style="margin-top:20px; text-align:left; font-size:18px;">
                     <p><strong>Name:</strong> ${participant.Name || 'N/A'}</p>
                     <p><strong>Email:</strong> ${participant.Email || 'N/A'}</p>
@@ -350,7 +350,7 @@ function initConferenceValidator() {
             `;
         } else {
             infoEl.innerHTML = `
-                <div style="color:#dc3545; font-size:28px; font-weight:bold;">Invalid</div>
+                <div style="color:#dc3545; font-size:28px; font-weight:bold;">Invalid ID provided.Invalid Code provided.</div>
                 <div style="margin-top:20px;">Invalid or unknown code: ${code}</div>
             `;
         }
