@@ -344,7 +344,7 @@ function initConferenceValidator() {
                     <p><strong>Name:</strong> ${participant.Name || 'N/A'}</p>
                     <p><strong>Email:</strong> ${participant.Email || 'N/A'}</p>
                     <p><strong>Affiliation:</strong> ${participant.Affiliation || 'N/A'}</p>
-                    <p><strong>Mode of Participant:</strong> ${participant.Mode || 'N/A'}; </p>
+                    <p><strong>Mode of Participant:</strong> ${participant.Mode || 'N/A'}; <strong>${participant.Committee || ''}</strong></p>
                     <p><strong>Topic:</strong> ${participant.Topic || 'Only attendee; he has no topic to present as oral or poster.'} </p>
                 </div>
             `;
