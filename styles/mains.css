@@ -72,13 +72,14 @@ nav ul li a:hover {
 }
 
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 2rem;
+    margin-top: 5%;
     position: relative;
     overflow: hidden;
     animation: slideIn 1s ease-out;
@@ -237,8 +238,15 @@ a {
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
     transition: transform 0.3s;
+}
+
+.card span {
+    color: #00796b;
+    font-weight: 700;
 }
 
 .adopted-centered {
@@ -263,8 +271,10 @@ a {
     text-align: center;
     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
-    margin-top: 80px; /* Adjust based on header height */
+}
+
+.announcement-bar {
+    padding: 0% 10%;
 }
 
 .incoming-conf-box {
@@ -279,6 +289,14 @@ a {
 @media (max-width: 768px) {
     .incoming-conf-box {
         flex-direction: column;
+    }
+
+    .announcement-bar {
+        padding: 5% 0;
+    }
+
+    table {
+        font-size: 0.9em;
     }
 }
 
@@ -409,7 +427,8 @@ footer {
     }
 
     .hero {
-        height: 215dvh;
+        padding: .5rem;
+        margin-top: 10%;
     }
 
     .hero h1 {
@@ -423,6 +442,7 @@ footer {
 
     .announcement-bar h2 {
         font-size: 1.2rem;
+        width: max-content;
     }
 
     .adopted-centered h1 {

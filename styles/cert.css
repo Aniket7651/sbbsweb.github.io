@@ -15,7 +15,7 @@
     container-type: inline-size;
 }
 
-.card {
+.cert-card {
     text-align: left;
     display: flex;
     flex-direction: row;
@@ -27,7 +27,7 @@
     width: 100%;
 }
 
-.card div {
+.cert-card div {
     text-align: center;
     display: flex;
     flex-direction: row;
@@ -38,8 +38,8 @@
 
 @container (max-width: 768px) {
 
-    .card,
-    .card div {
+    .cert-card,
+    .cert-card div {
         flex-direction: column;
     }
 }
