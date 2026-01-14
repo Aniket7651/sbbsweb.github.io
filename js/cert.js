@@ -1,6 +1,8 @@
 
-const domain = window.location.hostname; // ------ port -------
-const protocol = 'https'
+const domain = window.location.hostname; // window.location.hostname; // ------ port -------
+const protocol = 'https';
+
+const CSV_URL = `${protocol}://${domain}/docs/cert/Validation_list.csv?v=1.0.3`;
 
 async function generateParticipantCertificate() {
     const { jsPDF } = window.jspdf;
@@ -22,7 +24,7 @@ async function generateParticipantCertificate() {
     // Load and parse the CSV file production will be from server 
     // here for testing we are using localhost path
 
-    Papa.parse(`${protocol}://${domain}/docs/cert/participants.csv`, {
+    Papa.parse(CSV_URL, {
         download: true,
         header: true,
         dynamicTyping: true,
@@ -133,7 +135,7 @@ async function generatePresentationCertificate() {
         return;
     }
 
-    Papa.parse(`${protocol}://${domain}/docs/cert/participants.csv`, {
+    Papa.parse(CSV_URL, {
         download: true,
         header: true,
         dynamicTyping: true,
@@ -238,9 +240,6 @@ async function generatePresentationCertificate() {
 
 
 function initConferenceValidator() {
-
-    const CSV_URL = `${protocol}://${domain}/docs/cert/Validation_list.csv`;
-
     let participants = [];
 
     // Load CSV once on page load
@@ -348,6 +347,18 @@ function initConferenceValidator() {
                     <p><strong>Topic:</strong> ${participant.Topic || 'Only attendee; he has no topic to present as oral or poster.'} </p>
                 </div>
             `;
+        }
+        else if (participant.Mode === 'Poster Presentation' || participant.Mode === 'Oral Presentation') {
+            infoEl.innerHTML = `
+                <div style="color:#28a745; font-size:28px; font-weight:bold;">Recognised Presenter</div>
+                <div style="margin-top:20px; text-align:left; font-size:18px;">
+                    <p><strong>Name:</strong> ${participant.Name || 'N/A'}</p>
+                    <p><strong>Email:</strong> ${participant.Email || 'N/A'}</p>
+                    <p><strong>Affiliation:</strong> ${participant.Affiliation || 'N/A'}</p>
+                    <p><strong>Mode of Participant:</strong> ${participant.Mode || 'N/A'}; <strong>${participant.Committee || ''}</strong></p>
+                    <p><strong>Topic:</strong> ${participant.Topic || 'N/A'}</p>
+                </div>
+            `;
         } else {
             infoEl.innerHTML = `
                 <div style="color:#dc3545; font-size:28px; font-weight:bold;">Invalid ID provided.Invalid Code provided.</div>
@@ -361,107 +372,6 @@ function initConferenceValidator() {
         if (infoEl) infoEl.innerHTML = '';
     }
 }
-
-
-// function initParticipantValidator() {
-//     // CHANGE THIS TO YOUR ACTUAL RAW CSV URL
-//     const CSV_URL = `${protocol}://${domain}/docs/cert/participants.csv`;
-
-//     let participants = [];
-
-//     // Load CSV once on page load
-//     fetch(CSV_URL)
-//         .then(response => {
-//             if (!response.ok) throw new Error('CSV not found');
-//             return response.text();
-//         })
-//         .then(csvText => {
-//             Papa.parse(csvText, {
-//                 header: true,
-//                 skipEmptyLines: true,
-//                 complete: function(results) {
-//                     participants = results.data;
-//                     hideLoading();
-//                     focusInput();
-//                 }
-//             });
-//         })
-//         .catch(err => {
-//             showError('Error loading data: ' + err.message);
-//         });
-
-//     function hideLoading() {
-//         const loadingEl = document.getElementById('loading');
-//         if (loadingEl) loadingEl.style.display = 'none';
-//     }
-
-//     function focusInput() {
-//         const input = document.getElementById('codeInput');
-//         if (input) input.focus();
-//     }
-
-//     function showError(message) {
-//         const loadingEl = document.getElementById('loading');
-//         if (loadingEl) {
-//             loadingEl.innerHTML = '<span style="color:red;">' + message + '</span>';
-//         }
-//     }
-
-//     // Setup input listener
-//     const input = document.getElementById('codeInput');
-//     if (!input) {
-//         console.error('Element with id="codeInput" not found');
-//         return;
-//     }
-
-//     input.addEventListener('input', function() {
-//         const code = this.value.trim();
-//         if (code === '') {
-//             clearInfo();
-//             return;
-//         }
-//         searchParticipant(code);
-//     });
-
-//     input.addEventListener('keypress', function(e) {
-//         if (e.key === 'Enter') {
-//             const code = this.value.trim();
-//             searchParticipant(code);
-//         }
-//     });
-
-//     function searchParticipant(code) {
-//         const participant = participants.find(p => 
-//             p['uuid'] && p['uuid'].trim() === code
-//         );
-
-//         const infoEl = document.getElementById('info');
-//         if (!infoEl) return;
-
-//         if (participant) {
-//             infoEl.innerHTML = `
-//                 <div style="color:#28a745; font-size:28px; font-weight:bold;">Valid Participant</div>
-//                 <div style="margin-top:20px; text-align:left; font-size:18px;">
-//                     <p><strong>Name:</strong> ${participant.Name || 'N/A'}</p>
-//                     <p><strong>Email:</strong> ${participant.Email || 'N/A'}</p>
-//                     <p><strong>Affiliation:</strong> ${participant.Affiliation || 'N/A'}</p>
-//                     <p><strong>Mode of Participant:</strong> ${participant.Mode || 'N/A'}</p>
-//                     <!-- Add more fields from your CSV here -->
-//                 </div>
-//             `;
-//         } else {
-//             infoEl.innerHTML = `
-//                 <div style="color:#dc3545; font-size:28px; font-weight:bold;">Invalid</div>
-//                 <div style="margin-top:20px;">Invalid or unknown code: ${code}</div>
-//             `;
-//         }
-//     }
-
-//     function clearInfo() {
-//         const infoEl = document.getElementById('info');
-//         if (infoEl) infoEl.innerHTML = '';
-//     }
-// }
 
 // Call this function when you want to start the validator (e.g., on page load)
 // initParticipantValidator();
