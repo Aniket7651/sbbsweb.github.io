@@ -1,13 +1,36 @@
+:root {
+    --primary-color: #71cfb7;
+    --secondary-color: #b2e3f2;
+    --background-gradient: linear-gradient(135deg, #ffffff, #e4f9f8);
+    --text-color: #372719;
+    --header-bg: #269ccc;
+    --header-text: #ffffff;
+    --card-bg: white;
+    --card-shadow: #269ccc3b;
+    --cta-bg: #ffffff;
+    --cta-hover-bg: #269ccc;
+    --cta-text: #372719;
+    --gallery-gap: 15px;
+    --gallery-border-radius: 8px;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 16px;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
 }
 
 body {
-    background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
-    color: #333;
+    background: var(--background-gradient);
+    color: var(--text-color);
     overflow-x: hidden;
 }
 
@@ -15,22 +38,22 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
-    gap: 15px;
+    gap: var(--gallery-gap);
 }
 
 .gallery img {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 8px;
+    border-radius: var(--gallery-border-radius);
     object-fit: cover;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 header {
-    background: #00796b;
-    color: white;
+    background: var(--header-bg);
+    color: var(--header-text);
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
@@ -68,7 +91,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #b2ebf2;
+    color: var(--secondary-color);
 }
 
 .hero {
@@ -91,7 +114,11 @@ nav ul li a:hover {
     align-items: center;
     justify-content: center;
     padding: 30px;
-    background-color: #c7fff6a0;
+    background-color: #c7fff659;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background-clip: padding-box;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.356);
     /* Semi-transparent background */
     border-radius: 10px;
     position: relative;
@@ -99,9 +126,12 @@ nav ul li a:hover {
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 4rem;
     margin-bottom: 1rem;
-    color: #004d40;
+    color: var(--cta-hover-bg);
     z-index: 2;
 }
 
@@ -112,13 +142,33 @@ nav ul li a:hover {
     z-index: 2;
 }
 
+#awards {
+    position: relative;
+    padding: 4rem 2rem;
+    margin-top: 5%;
+    overflow: hidden;
+}
+
+.about-image {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: -1;
+    opacity: 0.85;
+}
+
 .cta-button {
-    background: #00796b;
-    color: white;
+    background: var(--cta-bg);
+    color: var(--cta-text);
     padding: 0.8rem 2rem;
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, background 0.3s;
     z-index: 2;
 }
@@ -131,10 +181,14 @@ nav ul li a:hover {
     .member-btn {
         font-size: 12px;
     }
+
+    .hamburger {
+        display: flex;
+    }
 }
 
 .cta-button:hover {
-    background: #004d40;
+    background: var(--cta-hover-bg);
     transform: scale(1.1);
 }
 
@@ -173,7 +227,7 @@ nav ul li a:hover {
 }
 
 a {
-    color: #00796b;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: bold;
     transition: all 0.3s;
@@ -182,22 +236,22 @@ a {
 .member-btn {
     padding: 15px;
     border-radius: 20px;
-    border: 2px solid #004d40;
+    border: 2px solid var(--cta-hover-bg);
 }
 
 .member-btn:hover {
-    background-color: #b2ebf2;
-    box-shadow: 0 6px 10px #00796b;
+    background-color: var(--secondary-color);
+    box-shadow: 0 6px 10px var(--primary-color);
 }
 
 .gallery-btn {
     border-radius: 25px;
-    border: 10px solid #c2edf2;
+    border: 10px solid var(--secondary-color);
 }
 
 .countdown-timer {
-    color: #004d40;
-    background-color: #b2ebf2;
+    color: var(--cta-hover-bg, #004d40);
+    background-color: var(--secondary-color);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: inline-block;
@@ -210,14 +264,14 @@ a {
     font-weight: bold;
     display: inline-block;
     min-width: 70px;
-    color: #004d40;
+    color: var(--cta-hover-bg);
     animation: fadeIn 2s ease-in-out;
 }
 
 .content-section h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: #004d40;
+    color: var(--cta-hover-bg);
 }
 
 .content-section p {
@@ -245,8 +299,21 @@ a {
 }
 
 .card span {
-    color: #00796b;
+    color: var(--primary-color);
     font-weight: 700;
+}
+
+.card .card-icon {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 4.5rem;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--cta-hover-bg);
 }
 
 .adopted-centered {
@@ -264,8 +331,8 @@ a {
 }
 
 .announcement-section {
-    background-color: #b2ebf2;
-    color: #004d40;
+    background-color: var(--secondary-color);
+    color: var(--cta-hover-bg);
     padding: 10px 0;
     max-width: 80%;
     text-align: center;
@@ -342,12 +409,11 @@ a {
 }
 
 .schedule-table th {
-    background: #00796b;
-    color: white;
+    background: var(--header-bg);
+    color: var(--header-text);
 }
 
 .awards-content {
-    background-color: #e0f7fa;
     display: flex;
     gap: 10rem;
     flex-direction: row;
@@ -357,10 +423,13 @@ a {
 
 .awards-content div {
     width: 40%;
-    background-color: white;
-    padding: 3%;
-    border-radius: 25px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 40px 80px var(--primary-color);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background-clip: padding-box;
 }
 
 .awards-content div ul li {
@@ -368,8 +437,8 @@ a {
 }
 
 footer {
-    background: #00796b;
-    color: white;
+    background: var(--header-bg);
+    color: var(--header-text);
     text-align: center;
     padding: 1rem;
     position: relative;

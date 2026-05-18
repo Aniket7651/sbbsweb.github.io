@@ -79,6 +79,7 @@ button {
     font-size: 18px;
     background: #00796b;
     color: white;
+    display: none;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -111,6 +112,7 @@ button:hover {
         width: 100%;
     }
     button {
+        display: block;
         font-size: 1.2rem;
         padding: 5%;
     }
