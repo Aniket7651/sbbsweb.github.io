@@ -188,6 +188,7 @@ nav ul li a:hover {
 }
 
 .cta-button:hover {
+    color: var(--cta-bg);
     background: var(--cta-hover-bg);
     transform: scale(1.1);
 }
