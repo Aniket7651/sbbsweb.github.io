@@ -31,9 +31,23 @@ th {
     justify-content: center;
 }
 
+.bank-details table {
+    width: 60%;
+    border-collapse: collapse;
+    margin: 20px;
+    text-align: center;
+    display: inline;
+    
+}
+
 @media (max-width: 768px) {
     .register {
         padding-top: 30%;
+    }
+
+    .bank-details table {
+        width: 100%;
+        margin: 10px 0;
     }
 
     table,
