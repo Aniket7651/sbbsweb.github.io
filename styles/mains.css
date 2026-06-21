@@ -479,6 +479,13 @@ footer {
     align-items: baseline;
 }
 
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--cta-hover-bg);
+    z-index: 2;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
 
@@ -551,6 +558,17 @@ footer {
 
     .countdown-timer {
         padding: 1rem 0.5rem;
+    }
+    .hero-content {
+        padding: 30px;
+        font-size: 0.9rem;
+    }
+    .hero-content h1 {
+        font-size: 1.2rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+        max-width: 100%;
     }
 }
 
@@ -627,7 +645,7 @@ footer {
 
     /* Hero sizing */
     .hero h1 {
-        font-size: 2rem;
+        font-size: 1.2rem;
     }
 
     .hero p {

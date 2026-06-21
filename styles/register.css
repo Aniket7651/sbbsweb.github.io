@@ -23,3 +23,27 @@ th {
     background-color: #00796b;
     color: white;
 }
+.register-buttons {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .register {
+        padding-top: 30%;
+    }
+
+    table,
+    th,
+    td {
+        font-size: 13px;
+    }
+    .register-buttons {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+}
