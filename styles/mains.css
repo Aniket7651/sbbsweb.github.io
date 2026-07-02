@@ -1,14 +1,14 @@
 :root {
-    --primary-color: #71cfb7;
-    --secondary-color: #b2e3f2;
-    --background-gradient: linear-gradient(135deg, #ffffff, #e4f9f8);
+    --primary-color: #028090;
+    --secondary-color: #ffffff;
+    --background-gradient: linear-gradient(135deg, #ffffff, #fdffdd, #b2e3f2, #b4ffef);
     --text-color: #372719;
-    --header-bg: #269ccc;
+    --header-bg: #05668d;
     --header-text: #ffffff;
     --card-bg: white;
     --card-shadow: #269ccc3b;
     --cta-bg: #ffffff;
-    --cta-hover-bg: #269ccc;
+    --cta-hover-bg: #05668d;
     --cta-text: #372719;
     --gallery-gap: 15px;
     --gallery-border-radius: 8px;
@@ -176,6 +176,7 @@ nav ul li a:hover {
 @media (max-width: 768px) {
     .cta-button {
         font-size: 12px;
+        padding: 0.6rem 1.5rem;
     }
 
     .member-btn {
@@ -297,6 +298,112 @@ a {
     max-width: 540px;
     margin: 0 auto;
     transition: transform 0.3s;
+}
+
+.card-container-college {
+    display: grid;
+    width: 100%;
+    max-width: 1200px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.card-container a {
+    text-decoration: none;
+}
+
+.card-info {
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    padding: 1rem;
+    width: inherit;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1; /* Ensure the content is above the pseudo-element */
+}
+
+.card-info::before {
+  content: ""; /* Required for pseudo-elements to render */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-image: url('/imgs/sbbslogoold.jpeg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right center; */
+  opacity: 0.2; 
+  z-index: -1; 
+}
+
+.card-info div {
+    margin: 0 1rem;
+    text-align: left;
+}
+
+.card-info-title {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: var(--cta-hover-bg);
+}
+
+.card-info div p {
+    font-size: 0.78rem;
+    color: var(--text-color);
+    font-weight: 900;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 400px) {
+    .card-container-college {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    #college-info h2 {
+        font-size: 1.5rem;
+    }
+
+    .card-info {
+        flex-direction: column;
+    }
+
+    .card-info span {
+        margin-bottom: 1rem;
+    }
+
+    .college-logo {
+        margin-bottom: 1rem;
+    }
+}
+
+
+.program-list {
+    padding-left: 5%;
+    margin: 0;
+    width: max-content;
+}
+
+.program-list li {
+    font-size: 0.8rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.college-logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card span {
@@ -523,7 +630,14 @@ footer {
     }
 
     .adopted-centered h1 {
-        font-size: 1.4rem;
+        font-size: 1.1rem;
+    }
+
+    .member-btn-div {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
     }
 
     .awards-content {
