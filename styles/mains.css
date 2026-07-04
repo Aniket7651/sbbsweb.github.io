@@ -399,6 +399,11 @@ a {
     .college-logo {
         margin-bottom: 1rem;
     }
+
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
 }
 
 
